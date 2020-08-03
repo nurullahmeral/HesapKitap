@@ -1,0 +1,390 @@
+@model HomeViewModels
+@{
+        var i = 2;
+        
+        
+    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <style>
+        @* .popular{
+            color: green;
+            font-weight: 500;
+        } *@
+    </style>
+    <style>
+     
+    </style>
+</head>
+<body>
+    <div class="alert alert-success text-center m-0">
+        <form action="/home/tarihkisitla" method="POST">
+            <div class="form-group">
+                <label for="Vade Tarihi"><strong>Tarih </strong> </label>
+                <input type="date" id="date" name="date" class=".formcontrolprcxy">
+                <input type="hidden" id="TarihKisit" name="TarihKisit" class="TarihKisit">
+                
+                
+            </div>
+
+        </form>
+    <h5 id="tarihdegisk">Günün tarihi ve hangi kademeden giriş yaptığı gösterilecek</h5> 
+    </div>
+    @await Html.PartialAsync("_navbar")
+   
+
+    <header>
+        @* <div class="jumbotron jumbotron-fluid">
+            <h5 class="display-4">Gün Sonu</h5>
+
+        </div> *@
+
+
+    </header>
+    <main>
+        @* <div class="container">
+            <div class="row">
+                <div class="col-md-12"></div>
+                 <ul class="list-group col-md-6">
+                        <li class="list-group-item ">Cras justo odio
+                            
+                        </li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                    <ul class="list-group col-md-6">
+                        <li class="list-group-item">
+                            
+                        </li>
+                        <li class="list-group-item"></li>
+                        <li class="list-group-item"></li>
+                        <li class="list-group-item"></li>
+                        <li class="list-group-item"></li>
+                    </ul>
+               
+                    
+            </div>
+        </div> *@
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    
+                </div>
+                <div class="col-md-4 my-5">
+                    <a href="/home/gunsonukategoriekle" class="btn btn-primary btn-sm mr-2 my-3">Düzenle</a>
+                    @* @foreach (var item in Model.GunSonu)
+                    {
+                        <form action="/home/@item.Id">
+                            <input type="hidden" id="gunsonu@item.Id" name="gunsonu@item.Id">
+                        </form>
+                        
+                    } *@
+                    
+                    
+                    <form method="POST">
+                        <fieldset>
+                            @* <ul>
+                                
+                                <li>Sistem cirosu=</li>
+                                <li>Aradaki fark=</li>
+                            </ul> *@
+                             @* <div class="form-inline">
+                                <div class="form-group">
+                                    <label>Ys Cüzdan</label>
+                                    <input type="number" class="form-control prc">
+                                </div>
+                            </div> *@
+                            <div class="form-inline">
+                                
+                                <table class="table table-bordered" >
+                                    <thead>
+                                        @* <tr>
+                                            <td>Sistem Ciro</td>
+                                            <td><input asp-for="Tutar" name="Tutar" type="number" ></td>
+                                            
+                                        </tr> *@
+                                    </thead>
+                                    <tbody>
+                                        @if(Model.GunSonu.Count>0){
+                                            
+                                            <tr>
+                                                    
+                                                    <td>
+                                                        Ön Kasa</td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <input type="hidden" id="NameGunSonu" name="gunSonuTutars[0].NameGunSonu" value="Ön Kasa">
+                                                            <input type="hidden" id="NameGunSonu" name="gunSonuTutars[1].NameGunSonu" value="toplammmm">
+                                                            <input id="Tutar" name="gunSonuTutars[0].OnKasaTutar" type="number" class="form-control prc" >
+                                                            <input type="hidden" id="onkasa" name="" value="onkasa">
+                                                            <input type="hidden" id="Aciklama" class="gunSonuTutarsAciklama" name="gunSonuTutars[0].Aciklama">
+                                                            <input type="hidden" id="Aciklama" class="gunSonuTutarsAciklama" name="gunSonuTutars[1].Aciklama">
+                                                            <input type="hidden" id="result" class="gunSonuTutarsResult" name="gunSonuTutars[0].result">
+                                                            <input type="hidden" id="result" class="gunSonuTutarsResult" name="gunSonuTutars[1].result">
+                                                            <input type="hidden" id="Tarih" class="gunSonuTutarsTarih" name="gunSonuTutars[0].Tarih">
+                                                            <input type="hidden" id="Tarih" class="gunSonuTutarsTarih" name="gunSonuTutars[1].Tarih">
+                                                           
+                                                            @* <input type="NameGunSonu" id="NameGunSonu" name="gunSonuTutars[0].NameGunSonu" value="Ön Kasa"> *@
+
+                                                        </div>
+                                                        
+                                                        
+                                                    </td>
+                                                    
+
+                                                    
+                                                    
+                                            </tr>
+                                            
+                                            @foreach (var gunsonu in Model.GunSonu){
+                                               
+                                                
+                                                
+                                                
+                                                <tr>
+                                                    
+                                                    <td>
+                                                        @gunsonu.NameGunSonu
+                                                        
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <input id="Tutar" name="gunSonuTutars[@i].Tutar" type="number" class="form-control prc" >
+                                                            <input type="hidden" id="NameGunSonu" name="gunSonuTutars[@i].NameGunSonu" value="@gunsonu.NameGunSonu">
+                                                            <input type="hidden" id="Aciklama" class="gunSonuTutarsAciklama" name="gunSonuTutars[@i].Aciklama">
+                                                            <input type="hidden" id="result" class="gunSonuTutarsResult" name="gunSonuTutars[@i].result">
+                                                            
+                                                            <input type="hidden" id="Tarih" class="gunSonuTutarsTarih" name="gunSonuTutars[@i].Tarih">
+                                                            
+
+                                                        </div>
+                                                        
+                                                        
+                                                    </td>
+                                                    
+
+                                                    
+                                                    
+                                                </tr>
+                                                i += 1;
+                                                
+                                            }
+
+                                        }else{
+                                            <div class="alert alert-warning">
+                                                <h3>Nakit Akışı Yok</h3>
+                                            </div>
+
+
+                                        }
+                                        <tr>
+                                            <td>
+                                                Toplam Ciro
+                                                
+                                            </td>
+                                            <td>
+                                                @* <input asp-for="Tutar" name="Tutar" type="number" > *@
+                                                <div class="form-group">
+                                                    <output id="resultt" name="" ></output> 
+                                                </div>
+                                                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Sistem Ciro
+                                                
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <input id="sistemciro" name="" type="number" class="form-control prcx" >
+
+                                                </div>
+                                                
+                                                @* <output id="result" >1000</output> *@
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Fark
+                                                
+                                            </td>
+                                            <td>
+                                                <output id="fark" name=""></output> 
+                                                @* <output id="result" >1000</output> *@
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Giderden Gelen
+                                                
+                                            </td>
+                                            <td>
+                                                @if(Model.GiderEkles.Count>0){
+                                                    var a = 0;
+                                                    @foreach (var giderEkle in Model.GiderEkles){
+                                                       
+                                                       a += @giderEkle.OnKasaTutar ;  
+                                                        
+                                                    }
+                                                    <output id="giderdengelen" name="" >
+                                                    @a
+                                                    </output>
+                                                }
+                                                
+                                                
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+
+                              
+                            </div> 
+                            
+                            
+                            @* <a href="/home/gunsonukategoriekle" class="fa fa-plus-circle">Yeni Bir Yöntem Ekle</a> *@
+                            
+                           
+                           
+                            <!-- <legend>Cart</legend> -->
+                            
+                           
+
+
+                            <div class="form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Açıklama Ekle</span>
+                                </div>
+                                <textarea id="Aciklamaa" name="" class="form-control" aria-label="With textarea"></textarea>
+                            </div>
+                            <div class="text-right">
+                                <button id="uyari" class="btn btn-success" type="submit">
+                                    <span class="fa fa-sign-in mr-2"></span> Gün Sonunu Tamamla
+                                </button>
+
+                            </div>
+                        </fieldset>
+
+
+
+
+                    </form>
+                    
+                    <script>
+                        
+                        /* var aciklama;
+                        aciklama =$('#Aciklamaa').val().toString();
+                        $('.gunSonuTutarsAciklama').val("sadsadsad");
+
+                        var gunsayac = 01;
+                        @* $("#txtDate").val($.datepicker.formatDate('dd M yy', new Date())); *@
+                        var d = new Date();
+                        d.setFullYear(2020,06,gunsayac);
+                        @* var datestring = d.getDate()  + "-" + (d.getMonth()+1) + "-" + d.getFullYear() + " " ; *@
+                        var datestring = d.getFullYear()  + "-" + (d.getMonth()+1) + "-" + d.getDate() + " " ;
+                        
+                        var ds = datestring.toString();
+                        $('#Tarih').val("2020-07-01");
+                        $('#tarihdegis').html("2020-07-01");
+                        $('.gunSonuTutarsTarih').val("2020-07-01"); */
+                        
+                        $('.form-group').on('input', function(){
+                            var date = new Date($('.formcontrolprcxy').val());
+                            var ab = date.getDate();
+                            var ac = date.getFullYear();
+                           
+                            
+                            var datestring = date.getFullYear()  + "-" + (date.getMonth()+1) + "-" + date.getDate() + " " ;
+                            
+                            var ds = datestring.toString();
+                            $('#tarihdegisk').html(ds); 
+                           
+                           
+
+                            $('.gunSonuTutarsTarih').val(ds); 
+                                
+                                
+                                
+                                
+                                
+
+                                
+                            });
+
+                      
+                        
+
+                        $('.form-group').on('input', '.prc', function () {
+                            var totalSum = 0;
+                            
+                            $('.form-group .prc').each(function () {
+                                var inputVal = $(this).val();
+                                if ($.isNumeric(inputVal)) {
+                                    totalSum += parseFloat(inputVal);
+                                    
+                                    
+                                }
+                            });
+                            $('#result').val(totalSum);
+                            $('.gunSonuTutarsResult').val(totalSum);
+                            $('#resultt').text(totalSum);
+                            
+                        });
+                        $('.form-group').on('input', '.prcx', function () {
+                            var totalSumm = 0;
+                            var fark=0;
+                            $('.form-group .prcx').each(function () {
+                                var inputVal = $(this).val();
+                                if ($.isNumeric(inputVal)) {
+                                    var sdasd = Number($("#resultt").html());
+                                    totalSumm =(parseFloat(inputVal)-sdasd);
+                                    
+                                }
+                            });
+                            
+                            
+                            $('#fark').text(totalSumm);
+                            
+                            
+                        });
+                        @* $() function(){
+                            
+                            var a = 0;
+                            var b = 0;
+                            var inputVal = $('#resultt');
+                            var sistemCiroVal = $('#sistemciro');
+                            if($.isNumeric(inputVal)){
+                                a = (parseFloat(inputVal));
+                            }
+                            if($.isNumeric(sistemCiroVal)){
+                                b = (parseFloat(sistemCiroVal));
+                            }
+                            $('#fark').text(a-b);
+
+                        } *@
+                    </script>
+                </div>
+                <div class="col-md-3"></div>
+               
+            </div>
+            
+           
+             
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,69 @@
+@* <div class="alert alert-success text-center m-0">
+    <h3 id="tarihdegis">Günün tarihi ve hangi kademeden giriş yaptığı gösterilecek</h3> A Şubesi
+</div> *@
+
+<div class="navbar bg-danger navbar-dark navbar-expand-sm">
+    <div class="container">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="/home/gunsonu" class="nav-link">Gün Sonu</a>
+            </li>
+            <li class="nav-item">
+                <a href="/home/giderekle" class="nav-link">Giderler</a>
+            </li>
+            <li class="nav-item">
+                <a href="/home/transferekle" class="nav-link">Transferler</a>
+            </li>
+            <li class="nav-item">
+                <a href="/home/nakitakisi" class="nav-link">Nakit Akışı</a>
+            </li>
+            <!-- Example single danger button -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Raporlar
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/home/gunsonurapor">Gün Sonları</a>
+                    <a class="dropdown-item" href="/home/transferlerigor">Transferler</a>
+                    <a class="dropdown-item" href="/home/giderlerigor">Giderler</a>
+                    @* <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a> *@
+                </div>
+            </div>
+           
+            <li class="nav-item">
+                <a href="" class="nav-link">Ayarlar</a>
+            </li>
+                <button type="button" class="btn btn-primary">
+                 Bildirimler <span class="badge badge-light">4</span>
+                </button>
+
+
+        </ul>
+        <form action="">
+            <select class="form-control" style="width: min-content;" id="OdemeTuru" name="OdemeTuru">
+                <option selected>Seçiniz...</option>
+                <option value="asubesi">A Şubesi</option>
+                <option value="bsubesi">B Şubesi</option>
+                <option value="csubesi">C Şubesi</option>
+                <option value="dsubesi">D Şubesi</option>
+           
+            
+            </select>
+
+        </form>
+        
+        
+        @* <nav class="navbar navbar-light bg-light">
+            
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </nav> *@
+    </div>
+    <script>
+
+    </script>
+
+</div>

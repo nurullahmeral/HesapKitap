@@ -1,0 +1,14 @@
+C:\Users\w10\Desktop\HesapKitapAnaDizin\hesapkitap.business\bin\Debug\netstandard2.0\hesapkitap.business.deps.json
+C:\Users\w10\Desktop\HesapKitapAnaDizin\hesapkitap.business\bin\Debug\netstandard2.0\hesapkitap.business.dll
+C:\Users\w10\Desktop\HesapKitapAnaDizin\hesapkitap.business\bin\Debug\netstandard2.0\hesapkitap.business.pdb
+C:\Users\w10\Desktop\HesapKitapAnaDizin\hesapkitap.business\bin\Debug\netstandard2.0\hesapkitap.data.dll
+C:\Users\w10\Desktop\HesapKitapAnaDizin\hesapkitap.business\bin\Debug\netstandard2.0\hesapkitap.entity.dll
+C:\Users\w10\Desktop\HesapKitapAnaDizin\hesapkitap.business\bin\Debug\netstandard2.0\hesapkitap.entity.pdb
+C:\Users\w10\Desktop\HesapKitapAnaDizin\hesapkitap.business\bin\Debug\netstandard2.0\hesapkitap.data.pdb
+C:\Users\w10\Desktop\HesapKitapAnaDizin\hesapkitap.business\obj\Debug\netstandard2.0\hesapkitap.business.csprojAssemblyReference.cache
+C:\Users\w10\Desktop\HesapKitapAnaDizin\hesapkitap.business\obj\Debug\netstandard2.0\hesapkitap.business.csproj.CoreCompileInputs.cache
+C:\Users\w10\Desktop\HesapKitapAnaDizin\hesapkitap.business\obj\Debug\netstandard2.0\hesapkitap.business.AssemblyInfoInputs.cache
+C:\Users\w10\Desktop\HesapKitapAnaDizin\hesapkitap.business\obj\Debug\netstandard2.0\hesapkitap.business.AssemblyInfo.cs
+C:\Users\w10\Desktop\HesapKitapAnaDizin\hesapkitap.business\obj\Debug\netstandard2.0\hesapkitap.business.csproj.CopyComplete
+C:\Users\w10\Desktop\HesapKitapAnaDizin\hesapkitap.business\obj\Debug\netstandard2.0\hesapkitap.business.dll
+C:\Users\w10\Desktop\HesapKitapAnaDizin\hesapkitap.business\obj\Debug\netstandard2.0\hesapkitap.business.pdb

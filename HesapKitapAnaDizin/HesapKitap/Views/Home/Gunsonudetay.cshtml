@@ -1,0 +1,142 @@
+@model HomeViewModels
+@{
+    var gunsonux = Model.GunSonu;
+    var transfergor = Model.TransferEkles;
+    var transferKalemi = Model.TransferKalemis;
+    var gunsonututar = Model.GunSonuTutars;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gün Sonu Raporları</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <style>
+        .row{
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    @await Html.PartialAsync("_navbar")
+    <header>
+
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    Kategorilize şeyler burada yer alacak
+                </div>
+                <div class="col-md-9">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <td><strong>Yöntem</strong></td>
+                                <td><strong>Tutar</strong></td>
+                                <td><strong>Tarih</strong></td>
+                                <td><strong>Yüzde</strong></td>
+                                <td style="width: 150px;"></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if(gunsonututar.Count>0){
+                                @foreach (var gunsonututarx in gunsonututar){
+                                    <tr>
+                                        
+                                        <td>@gunsonututarx.NameGunSonu</td>
+                                        <td>@gunsonututarx.Tutar</td>
+                                        <td>@gunsonututarx.Tarih</td>
+                                        <td>@gunsonututarx.result</td>
+
+                                        
+                                        <td>
+                                            <a href="#" class="btn btn-primary btn-sm mr-2">İncele</a>
+                                            <a href="#" class="btn btn-danger btn-sm mr-2">Sil</a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            }else{
+                                <div class="alert alert-warning">
+                                    <h3>Nakit Akışı Yok</h3>
+                                </div>
+
+
+                            }
+                            @* @if(transferKalemi.Count>0){
+                                @foreach (var transfer in transferKalemi){
+                                    <tr>
+                                        
+                                        <td>@transfer.Adı</td>
+                                        <td>1000</td>
+
+                                        
+                                        <td>
+                                            <a href="#" class="btn btn-primary btn-sm mr-2">İncele</a>
+                                            <a href="#" class="btn btn-danger btn-sm mr-2">Sil</a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            }else{
+                                <div class="alert alert-warning">
+                                    <h3>Nakit Akışı Yok</h3>
+                                </div>
+
+
+                            } *@
+                            
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            @* <div class="row">
+                <div class="col-md-3">
+                    <div class="list-group">
+                        @* <a href="#" class="list-group-item list-group-item-action">Toplam</a>
+                        @foreach (var gunsonuindex in gunsonux)
+                        {
+                            <a href="#" class="list-group-item list-group-item-action">@gunsonuindex.NameGunSonu</a> 
+                        } *@
+                    @* </div>
+                    
+                </div>
+                <div class="col-md-9">
+                    <div class="list-group">
+                        <ul>
+                            
+                            @foreach (var transfer in transfergor){
+
+                            
+                                <li class="list-group-item list-group-item-action">
+                                    <p><strong>Tarih: </strong>@transfer.TransferTarihi</p>
+                                    <p><strong>Nereden: </strong>@transfer.TransferNereden</p>
+                                    <p><strong>Nereye: </strong>@transfer.TransferNereye</p>
+                                    <p><strong>Tutar: </strong>@transfer.TransferTutari</p>
+                                    <p><strong>Açıklama: </strong>@transfer.TransferAciklama</p>
+                                    
+                                
+                                </li>
+                                
+                         
+                            }
+                        </ul>
+                       
+                    </div>
+                </div>
+            </div> *@ 
+        </div>
+
+    </main>
+
+    
+</body>
+</html>

@@ -1,0 +1,183 @@
+@model HomeViewModels
+@{
+    var gunsonux = Model.GunSonu;
+    var gunsonututarx = Model.GunSonuTutars;
+    var tarihx = Model.TarihKisit;
+    var degerKisitla = Model.DegerKisitlas;
+    
+    
+    
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gün Sonu Raporları</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <style>
+        .row{
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    @await Html.PartialAsync("_navbar")
+    <header>
+
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <form action="/home/tarihkisitla" method="POST">
+                        <div class="form-group">
+                            <label for="Vade Tarihi"><strong>Tarih </strong> </label>
+                            <input type="date" id="DegerAdi" name="DegerAdi" class=".formcontrolprcx">
+                            <input type="hidden" id="TarihKisit" name="TarihKisit" class="TarihKisit">
+                            <button id="submit">Tamam</button>
+                            
+                         </div>
+
+                    </form>
+                    <h5 class="denmeme">sfsdf</h5>
+                    <h6>@Model.TarihKisit</h6>
+                    Kategorilize şeyler burada yer alacak
+                </div>
+                <div class="col-md-9">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                @* <td style="width: 80px;"><strong>Id</strong></td> *@
+                                <td style="width: 150px;"><strong>Tutar</strong></td>
+                                <td style="width: 200px;"><strong>Tip</strong></td>
+                                <td style="width: 150px;"><strong>Tarih</strong></td>
+                                <td><strong>Açıklama</strong></td>
+                                <td style="width: 150px;"></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if(gunsonututarx.Count>0){
+
+                               
+                                
+                                
+                                @foreach (var gunSonuTutar in gunsonututarx){
+                                    @foreach (var degerkisitlax in degerKisitla)
+                                    {
+                                          @if(@gunSonuTutar.Tarih == degerkisitlax.DegerAdi){
+                                               <tr>
+                                        @* <td>@gunSonuTutar.GunsonuTutarId</td> *@
+                                                <td>@gunSonuTutar.result TL</td>
+                                                <td>@gunSonuTutar.NameGunSonu</td>
+                                                <td>@gunSonuTutar.Tarih</td>
+                                                <td>@gunSonuTutar.Aciklama</td>
+                                                
+                                                <td>
+                                                    <a href="#" class="btn btn-primary btn-sm mr-2">İncele</a>
+                                                    <a href="#" class="btn btn-danger btn-sm mr-2">Sil</a>
+                                                </td>
+                                            </tr>
+                                          }
+                                    
+                                   
+                                    }
+                                  
+                                    
+                                    
+                                   
+                                   
+                                }
+
+                            }else{
+                                <div class="alert alert-warning">
+                                    <h3>Rapor yok</h3>
+                                </div>
+
+
+                            }
+                            
+
+
+                        </tbody>
+                    </table>
+                </div>
+                
+                <script>
+                   
+                    
+                   @* @tarihx = "2020-7-1 "; *@
+                    
+                    $('.form-group').on('input', function(){
+                        var date = new Date($('.formcontrolprcx').val());
+                        var ab = date.getDate();
+                        var ac = date.getFullYear();
+                        console.log(ab);
+                        console.log(ac);
+                        
+                        var datestring = date.getFullYear()  + "-" + (date.getMonth()+1) + "-" + date.getDate() + " " ;
+                        
+                        var ds = datestring.toString();
+                        $('.form-group .prc').each(function () {
+                                var inputVal = $(this).val();
+                                if ($.isNumeric(inputVal)) {
+                                    totalSum += parseFloat(inputVal);
+                                    
+                                    
+                                }
+                            });
+                        $('.denmeme').html(ds);
+
+                        $('.TarihKisit').val("2020-7-1 "); 
+                        
+                        
+                        
+                        
+                        
+
+                        
+                    });
+                    
+                    
+
+                    @* var date = new Date($('.formcontrolprcx').val());
+                    var ab = date.getDate();
+                    var ac = date.getFullYear();
+                    console.log(ab);
+                    console.log(ac);
+                    $('.denmeme').html(ac); *@
+
+
+                   @* var ax = $('.formcontrolprcx').val();
+                   if($('.formcontrolprcx').val()!= null){
+                       console.log($('.formcontrolprcx').val());
+
+                   }
+                    *@
+                   
+                   @* var a = $('.formcontrolprcx').val();
+                   var a =  document.getElementById("Test_Date").value;
+                   var b = String(a);
+                   if(b!=null){
+                       
+                       $('.denmeme').html(b);
+                   }else{
+                       $('.denmeme').html("Boş");
+                   } *@
+                   
+
+                    
+                </script>
+            </div>
+            
+           
+        </div>
+
+    </main>
+
+    
+</body>
+</html>
